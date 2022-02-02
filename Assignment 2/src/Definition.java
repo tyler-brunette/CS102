@@ -23,12 +23,32 @@ public class Definition {
         return term;
     }
 
+    public void setTerm(String term) {
+        this.term = term;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getDef() {
+        return def;
+    }
+
+    public void setDef(String def) {
+        this.def = def;
+    }
+
     /*
-    Method: setObject
-    Purpose: Prints the entire database of terms, numbers, and definitions
-    Parameters: String Array entry: contains the term, number, and definition for a term
-    Returns: N/A
-    */
+        Method: setObject
+        Purpose: Prints the entire database of terms, numbers, and definitions
+        Parameters: String Array entry: contains the term, number, and definition for a term
+        Returns: N/A
+        */
     public void setObject(String[] entry){
         this.term = entry[0];
         this.number = parseInt(entry[1]);
@@ -44,8 +64,6 @@ public class Definition {
     */
     @Override
     public String toString() {
-        return  term + ": (" +
-                number +
-                ") " + def;
+        return  " (" + number + ") " + def;
     }
 }

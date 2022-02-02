@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Prog2" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="Prog2" />
+    <module name="Assignment 2" />
+    <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\tbru0\Desktop\Class Resources\2022 Winter\CS 102\CS102\Assignment 2\sample.txt&quot;" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

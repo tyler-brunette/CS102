@@ -8,56 +8,40 @@ Database class: Interaction between the Definition class and the user.
 import java.util.*;
 
 public class Database {
-    // entries is a Definition array that stores all Definition objects
-    private final Definition[] entries;
+    // dictionary is a Definition array that stores all Definition objects
+    private final TermList dictionary;
 
-    /*
-    Constructor
-    Purpose: Set the length of the final definition array
-    Parameters:
-    int length: Length of the parsed file
-     */
-    Database(int length) {
-        this.entries = new Definition[length];
+    public Database() {
+        this.dictionary = new TermList();
     }
 
     /*
-    Method: fillEntries
-    Purpose: Fills the definition array with the information from the parsed file.
-    Parameters:
-    ArrayList dataList: contains the parsed data from the file.
-    Returns: N/A
-    */
-    public void fillEntries(ArrayList<String[]> dataList) {
-        for (int i = 0; i < dataList.size(); i++) {
-            // Instance of the Definition class to fill entries.
-            Definition definition = new Definition();
-            definition.setObject(dataList.get(i));
-            this.entries[i] = definition;
+        Method: fillEntries
+        Purpose: Fills the definition array with the information from the parsed file.
+        Parameters:
+        ArrayList dataList: contains the parsed data from the file.
+        Returns: N/A
+        */
+    public void fillEntries(ArrayList<Definition> dataList) {
+        for (Definition definition : dataList) {
+            this.dictionary.addTerm(definition);
         }
     }
 
+    public void insertDefinition(Definition definition) {
+        this.dictionary.addTerm(definition);
+    }
 
     /*
-    Method: define
-    Purpose: Prints the definition of a term entered by the user.
+    Method: getDefinitions
+    Purpose: Prints the definitions of a term entered by the user.
     Parameters:
     String term: Term to define
     Returns: N/A
     */
-    public void define(String term) {
+    public void getDefinitions(String term) {
         System.out.println();
-        // match boolean shows whether there is a matching term to the user's input
-        boolean match = false;
-        for (Definition entry : entries) {
-            if (entry.getTerm().toLowerCase().equals(term.toLowerCase())) {
-                System.out.println(entry.toString());
-                match = true;
-            }
-        }
-        if (!match) {
-            System.out.println("No matching terms found.");
-        }
+        dictionary.getDefinitions(term);
     }
 
     /*
@@ -68,30 +52,9 @@ public class Database {
     Returns: N/A
     */
     public void searchTerms(String input) {
-        // matchingTerms collects all terms that match the input given by the user.
-        ArrayList<String> matchingTerms = new ArrayList<String>();
         System.out.println();
-        for (Definition entry : entries) {
-            boolean doesNotMatch = false;
-
-            for (int index = 0; index < input.length(); index++) {
-                if (entry.getTerm().charAt(index) != input.charAt(index)) {
-                    doesNotMatch = true;
-                    break;
-                }
-            }
-            if (!matchingTerms.contains(entry.getTerm()) && !doesNotMatch) {
-                matchingTerms.add(entry.getTerm());
-            }
-        }
-        if (matchingTerms.isEmpty()){
-            System.out.println("No matching terms found.");
-        } else {
-            System.out.println("Matching Terms: ");
-            for (int i = 0; i < matchingTerms.size(); i++) {
-                System.out.println(matchingTerms.get(i));
-            }
-        }
+        System.out.println("Matching Terms: \n");
+        dictionary.findMatchingTerms(input);
 
     }
 
@@ -103,10 +66,7 @@ public class Database {
     */
     public void printDatabase() {
         System.out.println();
-        for (Definition entry : entries) {
-            System.out.println(entry.toString());
-
-        }
+        dictionary.printDatabase();
     }
 
 }
