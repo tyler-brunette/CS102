@@ -2,32 +2,46 @@
 Tyler Brunette
 Login ID: brun6052
 CS-102, Winter 2022
-Programming Assignment 1
-Database class: Interaction between the Definition class and the user.
+Programming Assignment 2
+Database class: Interaction between the TermList class and the user.
  */
 import java.util.*;
 
 public class Database {
-    // dictionary is a Definition array that stores all Definition objects
+    // dictionary is a TermList that stores all Definition objects
     private final TermList dictionary;
 
+    /*
+    Constructor
+    Purpose: Initialize dictionary
+    Parameters: N/A
+    Returns: N/A
+    */
     public Database() {
         this.dictionary = new TermList();
     }
 
     /*
-        Method: fillEntries
-        Purpose: Fills the definition array with the information from the parsed file.
-        Parameters:
-        ArrayList dataList: contains the parsed data from the file.
-        Returns: N/A
-        */
+    Method: fillEntries
+    Purpose: Adds a definition object to dictionary with the information from the parsed file.
+    Parameters:
+    ArrayList dataList: contains the parsed data from the file.
+    Returns: N/A
+    */
     public void fillEntries(ArrayList<Definition> dataList) {
+        // Adds a definition to dictionary for every item in dataList
         for (Definition definition : dataList) {
             this.dictionary.addTerm(definition);
         }
     }
 
+    /*
+    Method: insertDefinition
+    Purpose: Adds a user defined definition object to dictionary.
+    Parameters:
+    Definition definition: user defined Definition object.
+    Returns: N/A
+    */
     public void insertDefinition(Definition definition) {
         this.dictionary.addTerm(definition);
     }
@@ -60,7 +74,7 @@ public class Database {
 
     /*
     Method: printDatabase
-    Purpose: Prints the entire database of terms, numbers, and definitions
+    Purpose: Prints the entire database of terms, sequence numbers, and definitions
     Parameters: N/A
     Returns: N/A
     */

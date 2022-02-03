@@ -2,7 +2,7 @@
 Tyler Brunette
 Login ID: brun6052
 CS-102, Winter 2022
-Programming Assignment 1
+Programming Assignment 2
 Definition class: Stores a single term, number, and definition
  */
 import static java.lang.Integer.parseInt;
@@ -14,10 +14,12 @@ public class Definition {
     private String def;
 
     /*
-    Method: getTerm
-    Purpose: Returns the term
-    Parameters: N/A
-    Returns: String term
+    Methods: getTerm, setTerm
+    Purpose: get or set the value of term.
+    Parameters:
+    String data: String to set term equal to
+    Returns:
+    term
     */
     public String getTerm() {
         return term;
@@ -27,6 +29,14 @@ public class Definition {
         this.term = term;
     }
 
+    /*
+    Methods: getNumber, setNumber
+    Purpose: get or set the value of number.
+    Parameters:
+    int number: sequence number of a term's definition
+    Returns:
+    number
+    */
     public int getNumber() {
         return number;
     }
@@ -35,6 +45,14 @@ public class Definition {
         this.number = number;
     }
 
+    /*
+    Methods: getDef, setDef
+    Purpose: get or set the value of def.
+    Parameters:
+    String def: definition of a term
+    Returns:
+    def
+    */
     public String getDef() {
         return def;
     }
